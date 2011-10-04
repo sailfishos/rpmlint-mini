@@ -1,0 +1,29 @@
+* Thu Jul 14 2011 Carsten Munk <carsten@maemo.org> - 1.1
+- Fix ARM build: Re-added rpmlintrc in order to make it build when rpmlint-mini name is
+  not rpmlint-mini (OBS doesn't pull in a package for it's own build to
+  build if it's Support: as well)
+
+* Sun May 15 2011 Anas Nashif <anas.nashif@intel.com> - 1.1
+- Adapt to new rpmlint
+
+* Thu Feb 17 2011 Anas Nashif <anas.nashif@intel.com> - 1.1
+- Update  desktop-file-utils
+- Make it build with LD_AS_NEEDED unset
+
+* Thu Jan 27 2011 Marko Saukko <marko.saukko@cybercom.com> - 1.1
+- Added rpmlintrc to fix compiles with rpmlint wihtout adding more dependencies.
+
+* Wed Mar 17 2010 Michael Meeks <michael.meeks@novell.com> - 1.1
+- add different path to allow rpmlintrc use
+
+* Sat Jan 09 2010 Anas Nashif <anas.nashif@intel.com> - 1.1
+- Fixed python dependencies
+
+* Mon Dec 14 2009 Anas Nashif <anas.nashif@intel.com> - 1.1
+- Update to work with rpmlint 0.92
+
+* Mon Oct 05 2009 Anas Nashif <anas.nashif@intel.com> - 1.0
+- Update for rpmlint 0.91
+
+* Tue Nov 25 2008 Anas Nashif <anas.nashif@intel.com> 1.0
+- initial import into moblin

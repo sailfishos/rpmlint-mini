@@ -1,0 +1,32 @@
+--- configure.ac
++++ configure.ac
+@@ -4,7 +4,6 @@
+ 
+ AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-bzip2])
+ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+-AC_CONFIG_MACRO_DIR([m4])
+ AM_CONFIG_HEADER(config.h)
+ 
+ # Honor aclocal flags
+--- Makefile.am
++++ Makefile.am
+@@ -1,7 +1,5 @@
+ SUBDIRS = man misc src
+ 
+-ACLOCAL_AMFLAGS = -I m4
+-
+ EXTRA_DIST = HACKING
+ 
+ MAINTAINERCLEANFILES = \
+--- src/Makefile.am
++++ src/Makefile.am
+@@ -32,7 +32,8 @@
+ 	mimeutils.h				\
+ 	update-desktop-database.c
+ 
+-desktop_file_validate_LDADD = $(DESKTOP_FILE_UTILS_LIBS)
++desktop_file_validate_LDFLAGS =
++desktop_file_validate_LDADD = $(libdir)/libglib-2.0.a -lpthread -lrt
+ desktop_file_install_LDADD = $(DESKTOP_FILE_UTILS_LIBS)
+ update_desktop_database_LDADD = $(DESKTOP_FILE_UTILS_LIBS)
+ 

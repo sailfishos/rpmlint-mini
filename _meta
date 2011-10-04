@@ -1,0 +1,15 @@
+<package project="Mer:Trunk:Base" name="rpmlint-mini">
+  <title>Rpm correctness checker</title>
+  <description>Rpmlint is a tool to check common errors on rpm packages. Binary and
+source packages can be checked.
+
+
+
+Authors:
+--------
+    Frederic Lepied &lt;flepied@mandriva.com&gt;
+    Gwenole Beauchesne &lt;gbeauchesne@mandriva.com&gt;
+
+</description>
+  <url>http://rpmlint.zarb.org/</url>
+</package>

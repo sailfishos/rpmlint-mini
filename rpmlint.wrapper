@@ -1,0 +1,11 @@
+#!/bin/sh
+if test -d /opt/testing/lib64; then
+	LD_LIBRARY_PATH=/opt/testing/lib64
+else
+	LD_LIBRARY_PATH=/opt/testing/lib
+fi
+PATH="/opt/testing/bin:$PATH"
+rpmlintdir="/opt/testing/share/rpmlint"
+PYTHONPATH="$rpmlintdir"
+export PYTHONPATH LD_LIBRARY_PATH
+exec /opt/testing/bin/python -tt -u -O "$rpmlintdir"/rpmlint.pyo  -C "$rpmlintdir" -f "$rpmlintdir"/rpmlint-mini.config "$@"
