@@ -1,5 +1,6 @@
 Name:           rpmlint-mini
-BuildRequires:  glib2-devel glib2-static pkgconfig rpm-python rpmlint python-devel
+BuildRequires:  glib2-devel glib2-static pkgconfig rpm-python rpmlint 
+BuildRequires:  python-devel python-libs 
 BuildRequires:  python-magic
 BuildRequires:  libtool
 Summary:        Rpm correctness checker
@@ -11,7 +12,7 @@ Group:          System/Packages
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Source:         desktop-file-utils-0.17.tar.bz2
 Patch10:        static-desktop-file-validate.diff
-Source100:      rpmlint-deps.txt
+Source100:      rpmlint-deps-%{python_version}.txt
 Source101:      rpmlint.wrapper
 Source102:      rpmlint-mini.config
 Source103:      polkit-default-privs.config
@@ -51,15 +52,16 @@ install -m 644 "%{SOURCE102}" $RPM_BUILD_ROOT/opt/testing/share/rpmlint
 # extra data
 install -m 755 -d $RPM_BUILD_ROOT/opt/testing/share/rpmlint/data
 #install -m 644 /etc/polkit-default-privs.standard $RPM_BUILD_ROOT/opt/testing/share/rpmlint/data
-install -m 644 -D /usr/include/python%{py_ver}/pyconfig.h $RPM_BUILD_ROOT/opt/testing/include/python%{py_ver}/pyconfig.h
+install -m 644 -D /usr/include/python%{python_version}/pyconfig.h $RPM_BUILD_ROOT/opt/testing/include/python%{python_version}/pyconfig.h
+install -m 644 -D %{py_libdir}/config/Makefile $RPM_BUILD_ROOT/opt/testing/%{_lib}/python%{python_version}/config/Makefile
 #
 cd %{py_libdir}
 for f in $(<%{SOURCE100}); do
-  find -path "*/$f" -exec install -D {} $RPM_BUILD_ROOT/opt/testing/%{_lib}/python%{py_ver}/{} \;
+  find -path "*/$f" -exec install -D {} $RPM_BUILD_ROOT/opt/testing/%{_lib}/python%{python_version}/{} \;
 done
 install -D /usr/bin/python $RPM_BUILD_ROOT/opt/testing/bin/python
 cp -a %_libdir/libmagic.so.* $RPM_BUILD_ROOT/opt/testing/%{_lib}
-cp -a %_libdir/libpython%{py_ver}.so.* $RPM_BUILD_ROOT/opt/testing/%{_lib}
+cp -a %_libdir/libpython%{python_version}.so.* $RPM_BUILD_ROOT/opt/testing/%{_lib}
 cp -a %_bindir/rpmlint $RPM_BUILD_ROOT/opt/testing/share/rpmlint/rpmlint.py
 pushd $RPM_BUILD_ROOT/opt/testing/share/rpmlint
 PYTHONOPTIMIZE=1 python %py_libdir/py_compile.py *.py

@@ -1,3 +1,5 @@
+* Wed Feb 08 2012 D Wadsworth <letters.random13@gmail.com> - 1.1
+- update to support python2.7 via python_version macro
 * Thu Jul 14 2011 Carsten Munk <carsten@maemo.org> - 1.1
 - Fix ARM build: Re-added rpmlintrc in order to make it build when rpmlint-mini name is
   not rpmlint-mini (OBS doesn't pull in a package for it's own build to
