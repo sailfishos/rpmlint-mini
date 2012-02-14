@@ -25,6 +25,7 @@ getopt.pyo
 glob.pyo
 hashlib.pyo
 heapq.pyo
+io.pyo
 httplib.pyo
 keyword.pyo
 lib-dynload/array.so
@@ -36,6 +37,7 @@ lib-dynload/fcntl.so
 lib-dynload/_functools.so
 lib-dynload/_hashlib.so
 lib-dynload/_heapq.so
+lib-dynload/_io.so
 lib-dynload/itertools.so
 lib-dynload/_locale.so
 lib-dynload/math.so
