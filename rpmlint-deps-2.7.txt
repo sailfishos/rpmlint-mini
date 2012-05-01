@@ -124,6 +124,7 @@ urllib.pyo
 urlparse.pyo
 UserDict.pyo
 warnings.pyo
+weakref.pyo
 _weakrefset.pyo
 xml/dom/domreg.pyo
 xml/dom/expatbuilder.pyo

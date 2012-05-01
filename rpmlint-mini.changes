@@ -1,4 +1,7 @@
 * Tue May 01 2012 Carsten Munk <carsten@merproject.org> - 1.1
+- Add one more to support python 2.7..
+
+* Tue May 01 2012 Carsten Munk <carsten@merproject.org> - 1.1
 - Add logging to suport python 2.7, seems to have escaped CI
 
 * Tue Feb 14 2012 Carsten Munk <carsten.munk@gmail.com> - 1.1
