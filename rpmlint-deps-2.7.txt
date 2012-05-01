@@ -52,6 +52,9 @@ lib-dynload/time.so
 lib-dynload/zlib.so
 linecache.pyo
 locale.pyo
+logging/config.pyo
+logging/handlers.pyo
+logging/__init__.pyo
 mimetools.pyo
 os.pyo
 pickle.pyo
