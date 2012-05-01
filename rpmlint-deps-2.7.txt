@@ -1,5 +1,6 @@
 _abcoll.pyo
 abc.pyo
+atexit.pyo
 base64.pyo
 bisect.pyo
 calendar.pyo
