@@ -1,3 +1,6 @@
+* Sun Jul 14 2013 Carsten Munk <carsten.munk@jollamobile.com> - 1.1
+- Add dependency to support python 2.7.5
+
 * Tue May 01 2012 Carsten Munk <carsten@merproject.org> - 1.1
 - Add atexit to support python 2.7..
 

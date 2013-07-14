@@ -106,6 +106,7 @@ site-packages/sitecustomize.pyo
 site-packages/sitecustomize.so
 site.pyo
 socket.pyo
+_sysconfigdata.pyo
 sre_compile.pyo
 sre_constants.pyo
 sre_parse.pyo
