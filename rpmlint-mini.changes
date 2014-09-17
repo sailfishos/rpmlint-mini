@@ -1,3 +1,6 @@
+* Wed Sep 17 2014 Pier Luigi Fiorini <pierluigi.fiorini@maui-project.org> - 1.1
+- Make rpmlintrc from packages work again.
+
 * Sun Jul 14 2013 Carsten Munk <carsten.munk@jollamobile.com> - 1.1
 - Add dependency to support python 2.7.5
 
