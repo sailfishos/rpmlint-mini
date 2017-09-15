@@ -11,7 +11,8 @@ License:        GPLv2+
 Group:          System/Packages
 Source:         desktop-file-utils-0.17.tar.bz2
 Patch10:        static-desktop-file-validate.diff
-Source100:      rpmlint-deps-%{python_version}.txt
+# Not using macro as check_package_is_complete failed when using python_version macro here
+Source100:      rpmlint-deps-2.7.txt
 Source101:      rpmlint.wrapper
 Source102:      rpmlint-mini.config
 Source103:      polkit-default-privs.config
