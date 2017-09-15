@@ -15,6 +15,7 @@ Source100:      rpmlint-deps-%{python_version}.txt
 Source101:      rpmlint.wrapper
 Source102:      rpmlint-mini.config
 Source103:      polkit-default-privs.config
+Source200:      rpmlint-mini-rpmlintrc
 
 %description
 Rpmlint is a tool to check common errors on rpm packages. Binary and
