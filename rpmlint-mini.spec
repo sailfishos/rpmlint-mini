@@ -9,13 +9,13 @@ Release:        3
 Url:            http://rpmlint.zarb.org/
 License:        GPLv2+
 Group:          System/Packages
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Source:         desktop-file-utils-0.17.tar.bz2
 Patch10:        static-desktop-file-validate.diff
 Source100:      rpmlint-deps-%{python_version}.txt
 Source101:      rpmlint.wrapper
 Source102:      rpmlint-mini.config
 Source103:      polkit-default-privs.config
+Source200:      rpmlint-mini-rpmlintrc
 
 %description
 Rpmlint is a tool to check common errors on rpm packages. Binary and
@@ -101,4 +101,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,0755)
 /opt/testing
 
-%changelog
