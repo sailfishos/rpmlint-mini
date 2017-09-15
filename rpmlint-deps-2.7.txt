@@ -28,6 +28,11 @@ hashlib.pyo
 heapq.pyo
 io.pyo
 httplib.pyo
+json/__init__.pyo
+json/decoder.pyo
+json/encoder.pyo
+json/scanner.pyo
+json/tool.pyo
 keyword.pyo
 lib-dynload/array.so
 lib-dynload/binascii.so
@@ -40,6 +45,7 @@ lib-dynload/_hashlib.so
 lib-dynload/_heapq.so
 lib-dynload/_io.so
 lib-dynload/itertools.so
+lib-dynload/_json.so
 lib-dynload/_locale.so
 lib-dynload/math.so
 lib-dynload/operator.so
@@ -50,6 +56,7 @@ lib-dynload/_socket.so
 lib-dynload/strop.so
 lib-dynload/_struct.so
 lib-dynload/time.so
+lib-dynload/unicodedata.so
 lib-dynload/zlib.so
 linecache.pyo
 locale.pyo

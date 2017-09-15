@@ -1,3 +1,6 @@
+* Fri Sep 15 2017 Pekka Vuorela <pekka.vuorela@jolla.com> - 1.1+git1
+- Add imports for unicodedata and json. Contributes to JB#39747
+
 * Wed Sep 17 2014 Pier Luigi Fiorini <pierluigi.fiorini@maui-project.org> - 1.1
 - Make rpmlintrc from packages work again.
 
