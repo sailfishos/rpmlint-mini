@@ -7,6 +7,7 @@ calendar.pyo
 codecs.pyo
 collections.pyo
 commands.pyo
+ConfigParser.pyo
 copy.pyo
 copy_reg.pyo
 encodings/aliases.pyo
