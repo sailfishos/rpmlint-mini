@@ -16,6 +16,8 @@ Source100:      rpmlint-deps-2.7.txt
 Source101:      rpmlint.wrapper
 Source102:      rpmlint-mini.config
 Source103:      polkit-default-privs.config
+# A tiny rpm to test with
+Source104:      basesystem-11+git1-1.11.2.noarch.rpm
 Source200:      rpmlint-mini-rpmlintrc
 
 %description
@@ -92,7 +94,13 @@ chmod +x %my_requires
 LD_LIBRARY_PATH=$RPM_BUILD_ROOT/opt/testing/%_lib
 PYTHONPATH=$RPM_BUILD_ROOT/opt/testing/share/rpmlint
 export PYTHONPATH LD_LIBRARY_PATH
+echo Checking for missing imports.
 $RPM_BUILD_ROOT/opt/testing/bin/python -tt -u -O $RPM_BUILD_ROOT/opt/testing/share/rpmlint/rpmlint.pyo --help || exit 1
+# Now just run the Checks against a simple rpm and this spec file so
+# we're not caught out when building.  If anything fails due to
+# missing impoers then update rpmlint-deps*.txt
+$RPM_BUILD_ROOT/opt/testing/bin/python -O $RPM_BUILD_ROOT/opt/testing/share/rpmlint/rpmlint.pyo  %{SOURCE104} || exit 1
+$RPM_BUILD_ROOT/opt/testing/bin/python -O $RPM_BUILD_ROOT/opt/testing/share/rpmlint/rpmlint.pyo  %{_sourcedir}/rpmlint-mini.spec || exit 1
 echo ".. ok"
 
 %clean

@@ -8,6 +8,7 @@ codecs.pyo
 collections.pyo
 commands.pyo
 ConfigParser.pyo
+contextlib.pyo
 copy.pyo
 copy_reg.pyo
 encodings/aliases.pyo
@@ -108,6 +109,8 @@ site-packages/rpm/__init__.pyo
 site-packages/rpm/__init__.so
 site-packages/rpm/_rpmmodule.so
 site-packages/rpm/_rpm.so
+site-packages/rpm/_rpmb.so
+site-packages/rpm/_rpms.so
 site-packages/rpm/transaction.pyo
 site-packages/sitecustomizemodule.so
 site-packages/sitecustomize.pyo
@@ -143,6 +146,11 @@ xml/dom/minicompat.pyo
 xml/dom/minidom.pyo
 xml/dom/NodeFilter.pyo
 xml/dom/xmlbuilder.pyo
+xml/etree/ElementInclude.pyo
+xml/etree/ElementTree.pyo
+xml/etree/cElementTree.pyo
+xml/etree/ElementPath.pyo
+xml/etree/__init__.pyo
 xml/__init__.pyo
 xml/parsers/expat.pyo
 xml/parsers/__init__.pyo
