@@ -1,3 +1,6 @@
+* Thu Apr 18 2019 David Greaves <david.greaves@jolla.com> - 1.1+git2
+- Add imports for new rpmlint and some tests. Contributes to JB#39747
+
 * Fri Sep 15 2017 Pekka Vuorela <pekka.vuorela@jolla.com> - 1.1+git1
 - Add imports for unicodedata and json. Contributes to JB#39747
 
