@@ -1,11 +1,14 @@
-#!/bin/sh
-if test -d /opt/testing/lib64; then
-	LD_LIBRARY_PATH=/opt/testing/lib64
+#!/bin/bash
+# Allow arbitrary installation
+# Default must be /opt/testing to work with obs build
+BASE=${SA_ROOT:-/opt/testing}
+if test -d ${BASE}/lib64; then
+	LD_LIBRARY_PATH=${BASE}/usr/lib64
 else
-	LD_LIBRARY_PATH=/opt/testing/lib
+	LD_LIBRARY_PATH=${BASE}/usr/lib
 fi
-PATH="/opt/testing/bin:$PATH"
-rpmlintdir="/opt/testing/share/rpmlint"
-PYTHONPATH="$rpmlintdir"
-export PYTHONPATH LD_LIBRARY_PATH
-exec /opt/testing/bin/python -tt -u -O "$rpmlintdir"/rpmlint.pyo  -C "$rpmlintdir" -f "$rpmlintdir"/rpmlint-mini.config "$@"
+PATH="${BASE}/usr/bin:$PATH"
+rpmlintdir="${BASE}/usr/lib/python3.8/site-packages/rpmlint"
+export PYTHONHOME="${BASE}/usr"
+export LD_LIBRARY_PATH
+exec ${BASE}/usr/bin/python3 -u -O ${BASE}/usr/bin/rpmlint.real "$@"
