@@ -26,8 +26,8 @@ Source101:      rpmlint.wrapper
 # Config
 Source200:      rpmlint-mini-rpmlintrc
 Source201:      polkit-default-privs.config
-# Test assets:  Our spec file and a tiny rpm
-Source300:      basesystem.spec
+# Test assets:  Spec file and a tiny rpm
+Source300:      basesystem.spectest
 Source301:      basesystem-11+git1-1.3.65.jolla.noarch.rpm
 Source302:      basesystem-rpmlintrc
 # Readme

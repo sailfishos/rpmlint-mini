@@ -1,5 +1,3 @@
-%global distroname Mer
-
 Summary: The skeleton package which defines a simple %{distroname} system
 Name: basesystem
 Version:    11+git1
