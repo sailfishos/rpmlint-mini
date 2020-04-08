@@ -30,6 +30,8 @@ Source201:      polkit-default-privs.config
 Source300:      rpmlint-mini.spec
 Source301:      basesystem-11+git1-1.3.65.jolla.noarch.rpm
 Source302:      basesystem-rpmlintrc
+# Readme
+Source400:      README.jolla
 
 
 %description
