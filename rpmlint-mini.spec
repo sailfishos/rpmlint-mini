@@ -27,7 +27,7 @@ Source101:      rpmlint.wrapper
 Source200:      rpmlint-mini-rpmlintrc
 Source201:      polkit-default-privs.config
 # Test assets:  Our spec file and a tiny rpm
-Source300:      rpmlint-mini.spec
+Source300:      basesystem.spec
 Source301:      basesystem-11+git1-1.3.65.jolla.noarch.rpm
 Source302:      basesystem-rpmlintrc
 # Readme
@@ -143,7 +143,7 @@ export SA_ROOT=%{sa_root}
 # Now just run the Checks against a simple rpm and this spec file so
 # we're not caught out when running real tests.  If anything fails due to
 # missing imports then update rpmlint-deps*.txt
-# First check our own spec file
+# First check spec file
 %{sa_root}/bin/rpmlint --verbose %{SOURCE300} || exit 1
 # And then a tiny test rpm
 %{sa_root}/bin/rpmlint --verbose --rpmlintrc %{SOURCE302} %{SOURCE301} || exit 1
