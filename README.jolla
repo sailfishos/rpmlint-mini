@@ -1,0 +1,60 @@
+Documenting the rough approach taken to rebuild this package from 2.7 to 3.8
+This is a base for the future - not a verbatim guide.
+
+Generate a build root in OBS and use as the basis of a working
+chroot. osc chroot should work too.
+
+Then set env variables for all the macros and in the spec replace the
+%{} with ${} so cut'n'paste works :)
+
+buildroot=/home/abuild/rpmbuild/BUILDROOT
+_sourcedir=/home/abuild/rpmbuild/SOURCES
+_builddir=/home/abuild/rpmbuild/BUILD
+sa_root=${buildroot}/rpmlint-mini-1.1+git2-1.2.1.jolla.i386/opt
+_bindir=/usr/bin
+_libdir=/usr/lib
+SOURCE100=${_sourcedir}/rpmlint-deps-2.7.txt
+SOURCE101=${_sourcedir}/rpmlint.wrapper
+SOURCE102=${_sourcedir}/rpmlint-mini.config
+SOURCE103=${_sourcedir}/polkit-default-privs.config
+# A tiny rpm to test with
+SOURCE104=${_sourcedir}/basesystem-11+git1-1.11.2.noarch.rpm
+SOURCE200=${_sourcedir}/rpmlint-mini-rpmlintrc
+python_version=3.8
+py_libdir=/usr/lib/python3.8
+name=rpmlint-mini
+__find_requires=echo
+__find_provides=echo
+
+A bit of dir setup is needed:
+
+rm -rf $sa_root
+mkdir -p ${sa_root}/usr/bin
+mkdir -p ${sa_root}/usr/lib
+mkdir -p ${sa_root}/etc/rpmlint
+mkdir -p ${sa_root}/etc/pythonstart
+cd ${_builddir}
+
+Then manually work through the spec using cut'n'paste.
+
+
+To rebuild the python 3 standalone first clear out all the old cruft
+
+mv ${sa_root}/${py_libdir}/site-packages/ <to a safe location>
+rm -rf ${sa_root}/${py_libdir}
+
+Now restore ${sa_root}/${py_libdir}/site-packages/ from <a safe location>
+
+# Check python starts using
+export PYTHONHOME=${saroot}/usr
+and then run python3
+
+Now test with an appropriately modified SOURCE100 and run rpmlint in a
+loop. Add the missing files to SOURCE100 as needed. Note that some of
+the modules beginning with _ are in lib-dynload (eg _sha256.*.so)
+
+Sometimes exceptions hide the real missing import
+
+while true; do ; for f in $(<${SOURCE100}); do  find -path "*/$f" -exec install -D {} ${sa_root}/${py_libdir}/{} \;; done; rpmlint; sleep 1; done
+
+Continue this using the SA_ROOT and wrapper to test rpmlint
