@@ -11,4 +11,4 @@ PATH="${BASE}/usr/bin:$PATH"
 rpmlintdir="${BASE}/usr/lib/python3.8/site-packages/rpmlint"
 export PYTHONHOME="${BASE}/usr"
 export LD_LIBRARY_PATH
-exec ${BASE}/usr/bin/python3 -u -O ${BASE}/usr/bin/rpmlint.real "$@"
+exec ${BASE}/usr/bin/python3 -u -O ${BASE}/usr/bin/rpmlint.real -c ${BASE}/etc/xdg/rpmlint/config "$@"
