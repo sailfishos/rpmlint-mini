@@ -1,3 +1,6 @@
+* Mon Dec 07 2020 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.12pre+git2
+- Load configuration from new location. JB#23853
+
 * Fri Feb 14 2020 David Greaves <david.greaves@jolla.com> - 1.12pre+git1
 - new rpmlint and python3. Contributes to JB#48740
 - match version to rpmlint version
