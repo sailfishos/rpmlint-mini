@@ -14,7 +14,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-magic
 BuildRequires:  libtool
 Summary:        Rpm correctness checker
-Version:        1.12pre+git1
+Version:        1.12pre+git2
 Release:        1
 Url:            http://rpmlint.zarb.org/
 License:        GPLv2+
