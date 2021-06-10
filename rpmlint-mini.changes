@@ -1,3 +1,6 @@
+* Fri Jun 11 2021 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 2.0.0+git1
+- Adapt to new rpmlint. JB#54636
+
 * Mon Dec 07 2020 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 1.12pre+git2
 - Load configuration from new location. JB#23853
 
