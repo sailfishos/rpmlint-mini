@@ -12,16 +12,21 @@ _compression.py
 contextlib.py
 copy.py
 copyreg.py
+cProfile.py
+csv.py
 datetime.py
 dis.py
 distutils/sysconfig.py
 email/base64mime.py
 email/charset.py
+email/_encoded_words.py
 email/encoders.py
 email/errors.py
 email/feedparser.py
 email/header.py
 email/__init__.py
+email/iterators.py
+email/message.py
 email/_parseaddr.py
 email/parser.py
 email/_policybase.py
@@ -58,6 +63,8 @@ io.py
 keyword.py
 lib-dynload/binascii.*.so
 lib-dynload/_bz2.*.so
+lib-dynload/_csv.*.so
+lib-dynload/_lsprof.*.so
 lib-dynload/_lzma.*.so
 lib-dynload/math.*.so
 lib-dynload/_posixsubprocess.*.so
@@ -84,6 +91,8 @@ platform.py
 plistlib.py
 posixpath.py
 pprint.py
+profile.py
+pstats.py
 pyparsing.py
 quopri.py
 random.py
@@ -113,6 +122,7 @@ traceback.py
 types.py
 urllib/__init__.py
 urllib/parse.py
+uu.py
 warnings.py
 weakref.py
 _weakrefset.py
