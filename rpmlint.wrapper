@@ -2,7 +2,7 @@
 # Allow arbitrary installation
 # Default must be /opt/testing to work with obs build
 BASE=${SA_ROOT:-/opt/testing}
-if test -d ${BASE}/lib64; then
+if test -d ${BASE}/usr/lib64; then
 	LD_LIBRARY_PATH=${BASE}/usr/lib64
 else
 	LD_LIBRARY_PATH=${BASE}/usr/lib
