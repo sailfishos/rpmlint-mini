@@ -8,13 +8,13 @@
 Name:           rpmlint-mini
 BuildRequires:  glib2-devel glib2-static pkgconfig rpm-python rpmlint
 # These are the packages that rpmlint pulls in and need to be included into this standalone package
-%define rpmlint_requires rpmlint python3-magic python3-toml python3-xdg python3-setuptools rpm-python
+%define rpmlint_requires rpmlint python3-magic python3-toml python3-xdg python3-setuptools python3-zstd rpm-python
 # python3-enchant is not yet packaged and is dynamically loaded
 BuildRequires:  python3-devel
 BuildRequires:  python3-magic
 BuildRequires:  libtool
 Summary:        Rpm correctness checker
-Version:        2.0.0+git2
+Version:        2.0.0+git3
 Release:        1
 Url:            https://github.com/rpm-software-management/rpmlint
 License:        GPLv2+
