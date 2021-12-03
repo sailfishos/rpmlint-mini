@@ -1,3 +1,6 @@
+* Fri Dec 3 2021 Niels Breet <niels.breet@jolla.com> - 2.0.0+git3
+- Enable zstd support for rpmlint. Contributes to JB#56526
+
 * Mon Nov 15 2021 Niels Breet <niels.breet@jolla.com> - 2.0.0+git2
 - Correctly detect lib64 in rpmlint.wrapper. Fixes JB#56364
 
