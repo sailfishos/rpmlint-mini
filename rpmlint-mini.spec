@@ -103,6 +103,15 @@ tar --no-recursion -T rpmlint.files -cpf - | ( cd %{sa_root} && tar -xvpf - ) > 
 # libmagic is part of 'file' and needed by python3-magic
 cp -a %{_libdir}/libmagic.so.* %{sa_root}/%{_libdir}
 
+ldd %{python3_sitearch}/rpm/*.so | while read LIB TARGET RESOLVED_LIB ADDRESS
+do
+# skip libc, it must match the system ld.so (which we cannot replace)
+case $LIB in libc.*) continue;; esac
+cp '-aLt%{buildroot}/opt/testing/%{_libdir}' "${RESOLVED_LIB}" || # is it a virtual library?
+! <"${RESOLVED_LIB}" || # it is a real library and still could not be copied
+false # this is necessary to really fail
+done
+
 # Now we byte-compile and optimise to compress
 # Ues the 'legacy' pyc naming as per the PEP
 # https://www.python.org/dev/peps/pep-3147/#case-4-legacy-pyc-files-and-source-less-imports
