@@ -13,6 +13,7 @@ BuildRequires:  glib2-devel glib2-static pkgconfig rpm-python rpmlint
 BuildRequires:  python3-devel
 BuildRequires:  python3-magic
 BuildRequires:  libtool
+#!BuildIgnore: rpmlint-mini
 Summary:        Rpm correctness checker
 Version:        2.0.0+git3
 Release:        1
