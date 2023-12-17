@@ -1,5 +1,4 @@
-%global py_ver %(%{__python3} -c 'import sys; print(sys.version[:3])')
-%define py_libdir %{_libdir}/python%{py_ver}
+%define py_libdir %{_libdir}/python%{python3_version}
 
 # The base directory (almost chroot) for rpmlint-mini
 # This has to be /opt/testing for obs-build to find /opt/testing/bin/rpmlint
@@ -15,15 +14,16 @@ BuildRequires:  python3-magic
 BuildRequires:  libtool
 #!BuildIgnore: rpmlint-mini
 Summary:        Rpm correctness checker
-Version:        2.0.0+git6
+Version:        2.0.0+git7
 Release:        1
 Url:            https://github.com/rpm-software-management/rpmlint
 License:        GPLv2+
 Source:         desktop-file-utils-0.17.tar.bz2
 Patch10:        static-desktop-file-validate.diff
-# Not using macro as check_package_is_complete failed when using py_ver macro here
+# Not using macro as check_package_is_complete failed when using python3_version macro here
 Source100:      rpmlint-deps-3.8.txt
-Source101:      rpmlint.wrapper
+Source101:      rpmlint-deps-3.11.txt
+Source110:      rpmlint.wrapper
 # Config
 Source200:      rpmlint-mini-rpmlintrc
 Source201:      polkit-default-privs.config
@@ -83,14 +83,20 @@ done
 
 # Setup a minimal python3
 install -D %{_bindir}/python3 %{sa_root}/%{_bindir}/python3
-cp -a %{_libdir}/libpython%{py_ver}.so* %{sa_root}/%{_libdir}
-install -m 644 -D /usr/include/python%{py_ver}/pyconfig.h %{sa_root}/usr/include/python%{py_ver}/pyconfig.h
+cp -a %{_libdir}/libpython%{python3_version}.so* %{sa_root}/%{_libdir}
+install -m 644 -D /usr/include/python%{python3_version}/pyconfig.h %{sa_root}/usr/include/python%{python3_version}/pyconfig.h
 
 # These are the python modules and libraries needed by rpmlint etc
 pushd %{py_libdir}
+%if "%{python3_version}" == "3.11"
+for f in $(<%{SOURCE101}); do
+  find -path "*/$f" -exec install -D {} %{sa_root}/%{py_libdir}/{} \;
+done
+%else
 for f in $(<%{SOURCE100}); do
   find -path "*/$f" -exec install -D {} %{sa_root}/%{py_libdir}/{} \;
 done
+%endif
 popd
 # Follow the same approach as sb2-tools-template to setup rpmlint and dependencies
 # Copy all files from the rpms that rpmlint requires into the sa_root
@@ -126,7 +132,7 @@ popd
 
 # Use the rpmlint-mini wrapper
 mv %{sa_root}/%{_bindir}/rpmlint %{sa_root}/%{_bindir}/rpmlint.real
-install -m 755 -D %{SOURCE101} %{sa_root}/%{_bindir}/rpmlint
+install -m 755 -D %{SOURCE110} %{sa_root}/%{_bindir}/rpmlint
 ln -s ../%{_bindir}/rpmlint %{sa_root}/bin/rpmlint
 
 # work around the rpmbuild require/provide
