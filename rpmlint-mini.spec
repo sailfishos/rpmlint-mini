@@ -15,7 +15,7 @@ BuildRequires:  python3-magic
 BuildRequires:  libtool
 #!BuildIgnore: rpmlint-mini
 Summary:        Rpm correctness checker
-Version:        2.0.0+git3
+Version:        2.0.0+git4
 Release:        1
 Url:            https://github.com/rpm-software-management/rpmlint
 License:        GPLv2+
