@@ -1,3 +1,6 @@
+* Wed Mar 26 2025 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 2.0.0+git5
+- Skip more libs when dynamically including rpm-python dependencies. JB#49501
+
 * Thu Dec 21 2023 Björn Bidar <bjorn.bidar@jolla.com> - 2.0.0+git4
 - [packaging] Dynamically include rpm-python dependencies. JB#61292
 
