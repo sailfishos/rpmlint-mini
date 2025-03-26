@@ -105,8 +105,12 @@ cp -a %{_libdir}/libmagic.so.* %{sa_root}/%{_libdir}
 
 ldd %{python3_sitearch}/rpm/*.so | while read LIB TARGET RESOLVED_LIB ADDRESS
 do
-# skip libc, it must match the system ld.so (which we cannot replace)
-case $LIB in libc.*) continue;; esac
+# skip libc and libm, it must match the system ld.so (which we cannot replace)
+case $LIB in lib[cm].*) continue;; esac
+# skip libdl, it must match the system ld.so (which we cannot replace)
+case $LIB in libdl*) continue;; esac
+# skip libpthread*, it must match the system ld.so (which we cannot replace)
+case $LIB in libpthread*) continue;; esac
 cp '-aLt%{buildroot}/opt/testing/%{_libdir}' "${RESOLVED_LIB}" || # is it a virtual library?
 ! <"${RESOLVED_LIB}" || # it is a real library and still could not be copied
 false # this is necessary to really fail
