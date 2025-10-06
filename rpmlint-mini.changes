@@ -1,3 +1,6 @@
+* Sat Oct 04 2025 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 2.0.0+git6
+- Use %autosetup instead of %patchN in spec. JB#63645
+
 * Wed Mar 26 2025 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 2.0.0+git5
 - Skip more libs when dynamically including rpm-python dependencies. JB#49501
 

@@ -15,7 +15,7 @@ BuildRequires:  python3-magic
 BuildRequires:  libtool
 #!BuildIgnore: rpmlint-mini
 Summary:        Rpm correctness checker
-Version:        2.0.0+git5
+Version:        2.0.0+git6
 Release:        1
 Url:            https://github.com/rpm-software-management/rpmlint
 License:        GPLv2+
@@ -42,8 +42,7 @@ Rpmlint is a tool to check common errors on rpm packages. Binary and
 source packages can be checked.
 
 %prep
-%setup -q -n desktop-file-utils-0.17
-%patch10
+%autosetup -p0 -n desktop-file-utils-0.17
 
 %build
 autoreconf -fi
@@ -163,9 +162,6 @@ export SA_ROOT=%{sa_root}
 %{sa_root}/bin/rpmlint --verbose --rpmlintrc %{SOURCE302} %{SOURCE301} || exit 1
 
 echo "ok.... standalone rpmlint-mini has run successfully"
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,0755)
