@@ -1,3 +1,6 @@
+* Thu Oct 16 2025 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 2.0.0+git7
+- Use generic python macros. Update for python 3.11. JB#61296
+
 * Sat Oct 04 2025 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 2.0.0+git6
 - Use %autosetup instead of %patchN in spec. JB#63645
 
